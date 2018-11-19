@@ -1,13 +1,9 @@
+const parse = require('../packages/vremark-parse');
 const vdom = require('../packages/rehype-vdom');
 
 exports.settings = {};
 
 exports.plugins = [
-    function () {
-        this.Parser = function (doc, file) {
-            return file.hast;
-        };
-    },
-
+    parse,
     vdom
 ];

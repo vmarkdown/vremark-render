@@ -12,6 +12,7 @@ const vremark = {
     async render(hast, options) {
         const render = require('../../index');
         const processor = unified().use(render).data('settings', options);
+
         const file = await processor.process(hast);
         return file.contents;
     }
@@ -35,7 +36,7 @@ const app = new Vue({
             console.log(hast);
 
             const vdom = await vremark.render(hast, {
-                h:h
+                h: h
             });
 
             console.log(vdom);

@@ -1,0 +1,46 @@
+{
+  "name": "vremark-render",
+  "version": "0.0.1",
+  "description": "vremark-render extension",
+  "scripts": {
+    "pub": "npm publish .",
+    "dev": "webpack-dev-server --config ./examples/webpack.config.js",
+    "dist": "webpack --config ./webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmarkdown/vremark-render.git"
+  },
+  "keywords": [
+    "markdown",
+    "remark",
+    "mdast",
+    "parse"
+  ],
+  "main": "index.js",
+  "author": "yucopowo@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vmarkdown/vremark-render/issues"
+  },
+  "files": [
+    "packages",
+    "src",
+    "index.js"
+  ],
+  "homepage": "https://github.com/vmarkdown/vremark-render#readme",
+  "devDependencies": {
+    "css-loader": "^1.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^0.23.1",
+    "text-loader": "^0.0.1",
+    "unified": "^7.0.2",
+    "vremark-parse": "^0.0.29",
+    "vue": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+  }
+}

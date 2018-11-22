@@ -11,7 +11,8 @@ const vremark = {
     },
     async render(hast, options) {
         const render = require('../../index');
-        const processor = unified().use(render).data('settings', options);
+        const flowchart = require('../plugins/vremark-plugin-flowchart');
+        const processor = unified().use(flowchart).use(render).data('settings', options);
 
         const file = await processor.process(hast);
         return file.contents;
@@ -53,7 +54,7 @@ const app = new Vue({
 });
 
 (async ()=>{
-    const md = require('../md/demo.md');
+    const md = require('../md/test.md');
     app.update(md);
 })();
 

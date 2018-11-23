@@ -1,13 +1,7 @@
+var xtend = require('xtend');
 const visit = require('unist-util-visit');
 const PLUGIN_NAME = 'vremark-plugin-flowchart';
 const COMPONENT_NAME = 'vremark-component-flowchart';
-
-
-const Vue = require('vue').default;
-
-
-Vue.component(COMPONENT_NAME, require('./component'));
-
 
 function isPlugin(node) {
     return node.lang &&
@@ -18,9 +12,14 @@ function isPlugin(node) {
 }
 
 function plugin(options = {}) {
+    var settings = xtend(options, this.data('settings'));
 
+    // const Vue = settings.Vue;
+    const register = settings.register;
 
-    return function transformer(root) {
+    let hasComponent = false;
+
+    return async function transformer(root, file, next) {
 
         visit(root, function (node) {
             return isPlugin(node);
@@ -38,8 +37,25 @@ function plugin(options = {}) {
 
             node.children = [];
 
-        })
+            hasComponent = true;
 
+        });
+
+
+        if(!hasComponent ){
+            next();
+            return root;
+        }
+
+        const component = await import(
+            /* webpackChunkName: "vremark-component-flowchart" */
+            './component');
+
+        if(register){
+            register(component.default || component);
+        }
+
+        next();
 
     };
 

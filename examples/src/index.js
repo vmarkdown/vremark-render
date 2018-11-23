@@ -13,11 +13,14 @@ const vremark = {
         const render = require('../../index');
         const flowchart = require('../plugins/vremark-plugin-flowchart');
         const processor = unified().use(flowchart).use(render).data('settings', options);
-
         const file = await processor.process(hast);
         return file.contents;
     }
 };
+
+function register(component) {
+    Vue.component(component.name, component);
+}
 
 const app = new Vue({
     el: '#app',
@@ -37,7 +40,8 @@ const app = new Vue({
             console.log(hast);
 
             const vdom = await vremark.render(hast, {
-                h: h
+                h: h,
+                register: register
             });
 
             console.log(vdom);

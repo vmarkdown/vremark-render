@@ -1,22 +1,29 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge');
 
-module.exports = {
+const base = {
     mode: 'none',
-    entry: {
-        'example-main': path.resolve(__dirname, 'src/index.js')
-    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+        filename: '[name].js',
+        chunkFilename: '[name].js',
     },
     resolve: {
         alias: {
-            'unist-util-data': path.resolve(__dirname, '../packages', 'unist-util-data', 'index.js')
+            // 'unist-util-data': path.resolve(__dirname, '../packages', 'unist-util-data', 'index.js')
         }
     },
     module: {
         rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
             {
                 test: /\.css$/,
                 use: [
@@ -61,4 +68,20 @@ module.exports = {
         ]
     }
 };
+
+module.exports = [
+    merge(base, {
+        entry: {
+            'example-main': path.resolve(__dirname, 'src/index.js')
+        },
+    }),
+    // merge(base, {
+    //     entry: {
+    //         'vremark-plugin-flowchart': path.resolve(__dirname, 'plugins/','vremark-plugin-flowchart', '/index.js')
+    //     },
+    //     output: {
+    //         libraryTarget: "amd"
+    //     }
+    // })
+];
 

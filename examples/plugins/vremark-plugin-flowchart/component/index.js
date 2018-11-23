@@ -1,7 +1,7 @@
 const flowchart = require('flowchart.js');
 const COMPONENT_NAME = 'vremark-component-flowchart';
 
-// require('./index.scss');
+require('./index.scss');
 
 module.exports = {
     name: COMPONENT_NAME,

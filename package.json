@@ -13,9 +13,10 @@
   },
   "keywords": [
     "markdown",
+    "vmarkdown",
     "remark",
-    "mdast",
-    "parse"
+    "hast",
+    "render"
   ],
   "main": "index.js",
   "author": "yucopowo@gmail.com",

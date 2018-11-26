@@ -15,7 +15,7 @@ Parser.prototype.parseNodes = function(nodes, parent) {
     for(var i=0;i<nodes.length;i++){
         var node = nodes[i];
         // node.index = i;
-        node.parent = parent;
+        // node.parent = parent;
         var tempNode = this.parseNode(node);
         tempNode && vnodes.push(tempNode);
     }

@@ -45,8 +45,8 @@ const app = new Vue({
 
             const vdom = await vremark.render(hast, {
                 h: h,
-                register: register,
-                plugins: plugins
+                // register: register,
+                // plugins: plugins
             });
 
             console.log(vdom);

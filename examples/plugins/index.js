@@ -8,7 +8,7 @@ const components = {};
 function plugin(options = {}) {
 
     const settings = xtend(options, this.data('settings'));
-    const plugins = settings.plugins;
+    const plugins = settings.plugins || [];
 
     const register = settings.register;
 

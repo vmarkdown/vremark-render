@@ -1,6 +1,6 @@
 {
   "name": "vremark-render",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "vremark-render extension",
   "scripts": {
     "pub": "npm publish .",
@@ -40,7 +40,7 @@
     "text-loader": "^0.0.1",
     "unified": "^7.0.2",
     "unist-util-visit-children": "^1.1.2",
-    "vremark-parse": "^0.0.30",
+    "vremark-parse": "^0.0.31",
     "vue": "^2.5.17",
     "webpack": "^4.25.1",
     "webpack-cli": "^3.1.2",
